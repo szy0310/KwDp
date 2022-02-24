@@ -4,23 +4,58 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>登录</title>
-		<link rel="stylesheet" href="css/login.css" />
 		<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
-		<script type="text/javascript" src="js/login/login.js" ></script>
-		<script type="test/javascript" src="js/login//addlogin.js"></script>
 	</head>
 
 	<body>
 
-		<form>
-
-
-
+		<form accept="" method="post"> 
+			<ul>
+				<li>账号</li>
+				<li><input type="text"  id="email" name="Email"  /></li>
+			</ul>
+			<ul>
+				<li>密码</li>
+				<li><input type="password" id="password" name="Password"  /></li>
+			</ul>
+			<ul>
+				<li> <button type="button" onclick="login()">登录</button></li>
+			</ul>
 		</form>
-
-		
-
-	
 	</body>
+<script type="text/javascript">
+	
+	function login(){
+		var email=document.getElementById ("email").value;
+		var password=document.getElementById ("password").value;
+		$.ajax({
+			type:"POST",
+			dataType:"json",
+			url:"http://39.99.191.148:3000/api/user/login",
+			accepts:"application/json; charset=utf-8",
+			async :false,
+			data:JSON.stringify({
+				"email":email,
+				"password":password
+			
+			}),
+		success:function(result){
+				console	.log("data is :" + result)
+				if(result.code==200){
+
+					alert("登录成功")
+					window.location.href="../content/financial.html"
+				}else{
+					alert(result.message)
+				}
+			}
+		})
+
+	}
+
+</script>
+
+
+
 
 </html>
