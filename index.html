@@ -42,9 +42,9 @@
 		success:function(result){
 				console	.log("data is :" + result)
 				if(result.code==200){
-
+					window.location.href="../KwDp/content/financial.html"
 					alert("登录成功")
-					window.location.href="../content/financial.html"
+					
 				}else{
 					alert(result.message)
 				}
