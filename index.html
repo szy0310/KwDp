@@ -3,59 +3,33 @@
 
 	<head>
 		<meta charset="utf-8" />
-		<title>登录</title>
+		<title>ui后台登录模板</title>
 		<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+		<link href="css/login/style.css" rel="stylesheet" type="text/css" media="all">
+		<script type="text/javascript" src="js/login/login.js"></script>
+		<link >
 	</head>
 
-	<body>
+	<body style="background-image: url(./img/login/1.jpg);">
 
-		<form accept="" method="post"> 
-			<ul>
-				<li>账号</li>
-				<li><input type="text"  id="email" name="Email"  /></li>
-			</ul>
-			<ul>
-				<li>密码</li>
-				<li><input type="password" id="password" name="Password"  /></li>
-			</ul>
-			<ul>
-				<li> <button type="button" onclick="login()">登录</button></li>
-			</ul>
-		</form>
-	</body>
-<script type="text/javascript">
+		<div class="padding-all">
+			<div class="header">
+				<h1><img src="img/login/5.png"  alt=" "></h1>
+			</div>
 	
-	function login(){
-		var email=document.getElementById ("email").value;
-		var password=document.getElementById ("password").value;
-		$.ajax({
-			type:"POST",
-			dataType:"json",
-			url:"http://39.99.191.148:3000/api/user/login",
-			accepts:"application/json; charset=utf-8",
-			async :false,
-			data:JSON.stringify({
-				"email":email,
-				"password":password
-			
-			}),
-		success:function(result){
-				console	.log("data is :" + result)
-				if(result.code==200){
-					window.location.href="../KwDp/content/financial.html"
-					alert("登录成功")
+			<div class="design-w3l">
+				<div class="mail-form-agile">
 					
-				}else{
-					alert(result.message)
-				}
-			}
-		})
-
-	}
-
-</script>
-
-
-
+					<form action="#" method="post">
+						<input type="text" id="email" name="email" placeholder="输入  email..." required=""/>
+						<input type="password"  id="password" name="password" class="padding" placeholder="Password" required=""/>
+						<input type="button" value="submit" onclick="login()">
+					
+					
+					</form>
+				</div>
+			  <div class="clear"> </div>
+			</div>
+		</div>
 
 </html>
